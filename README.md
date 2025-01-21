@@ -74,11 +74,9 @@ The application will be available at `http://127.0.0.1:5000/`.
 online-course-platform/
 │
 ├── app.py                # The main file that runs the Flask application
-├── models.py             # Models for the database tables
-├── requirements.txt      # Application dependencies (Flask, SQLite, etc.)
 ├── static/               # Static files (CSS, JS, images)
 ├── templates/            # HTML templates for the front-end
-├── database.db           # SQLite database file
+├── OnlineCoursesDB.      # SQL database backup
 ├── README.md             # This file
 └── .gitignore            # Files to be ignored by Git
 ```
