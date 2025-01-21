@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Materiale Curs</title>
+</head>
+<body>
+    <h1>Materiale pentru Cursul: {{ course_id }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Fisier</th>
+                <th>Tip Material</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for material in materials %}
+            <tr>
+                <td>{{ material.Nume_fisier }}</td>
+                <td>{{ material.Tip_material }}</td>
+                <td><a href="{{ material.Url_fisier }}">Descarcă</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

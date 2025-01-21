@@ -1,0 +1,82 @@
+{% extends "layout.html" %} {% block content %}
+<h1>{{ course.Nume_curs }}</h1>
+<p>{{ course.Descriere }}</p>
+
+<!-- Formular pentru adăugarea recenziei -->
+<!-- Formularul pentru a adăuga o recenzie -->
+<h3>Adaugă o recenzie</h3>
+<form method="POST">
+  <div class="form-group">
+    <label for="rating">Rating (1-5)</label>
+    <select id="rating" name="rating" class="form-control" required>
+      <option value="" disabled selected>Alege un rating</option>
+      <option value="1">1 - Foarte slab</option>
+      <option value="2">2 - Slab</option>
+      <option value="3">3 - Bun</option>
+      <option value="4">4 - Foarte bun</option>
+      <option value="5">5 - Excelent</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="review">Comentariu</label>
+    <textarea
+      id="review"
+      name="review"
+      class="form-control"
+      rows="4"
+      placeholder="Scrie comentariul tău..."
+      required
+    ></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Trimite recenzia</button>
+</form>
+
+<!-- Afișarea recenziilor existente -->
+<h3>Recenzii</h3>
+{% if reviews %}
+<div class="review-container">
+  {% for review in reviews %}
+  <div class="review-card">
+    <div class="review-header">
+      <strong>{{ review.Nume }}</strong> - {{ review.Rating }} stele
+    </div>
+    <div class="review-body">
+      <p>{{ review.Comentariu }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p>Nu există recenzii pentru acest curs.</p>
+{% endif %} {% endblock %} {% block styles %}
+<style>
+  .review-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .review-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .review-header {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .review-body {
+    font-size: 1em;
+    color: #555;
+  }
+
+  .form-control {
+    margin-bottom: 10px;
+  }
+</style>
+
+{% endblock %}

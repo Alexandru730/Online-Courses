@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista Profesorilor</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Nume</th>
+          <th>Email</th>
+          <th>Telefon</th>
+          <th>Acțiune</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <td>{{ student.Nume }}</td>
+          <td>{{ student.Email }}</td>
+          <td>{{ student.Telefon }}</td>
+          <td>
+            <form
+              action="{{ url_for('delete_student', user_id=student.UserID) }}"
+              method="POST"
+            >
+              <button
+                type="submit"
+                onclick="return confirm('Sunteți sigur că doriți să ștergeți acest utilizator?')"
+              >
+                Șterge
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <br /><br />
+    <a href="{{ url_for('admin_dashboard') }}">
+      <button>Înapoi la Dashboard</button>
+    </a>
+  </body>
+</html>

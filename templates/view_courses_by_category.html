@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Cursuri pe Categorie</title>
+</head>
+<body>
+    <h1>Cursuri în Categoria: {{ category_name }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Curs</th>
+                <th>Categorie</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{ course.Nume_curs }}</td>
+                <td>{{ category_name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

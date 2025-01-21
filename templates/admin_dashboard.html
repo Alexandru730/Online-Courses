@@ -1,0 +1,16 @@
+<!-- templates/admin_dashboard.html -->
+{% extends 'layout.html' %} {% block title %}Dashboard Admin{% endblock %} {%
+block content %}
+<h2>Dashboard Admin</h2>
+
+<form method="POST">
+  <label for="option">Alegeți ce doriți să vizualizați:</label>
+  <select name="option" id="option">
+    <option value="students">Lista Studenți</option>
+    <option value="professors">Lista Profesori</option>
+    <option value="pending_courses">Cursuri de revizuit</option>
+  </select>
+  <button type="submit">Vizualizează</button>
+</form>
+
+{% endblock %}

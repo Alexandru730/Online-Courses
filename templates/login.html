@@ -1,0 +1,23 @@
+{% extends 'layout.html' %} {% block content %}
+<h2 class="text-center">Autentificare</h2>
+<form method="POST" action="{{ url_for('login') }}">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="Email" required />
+  </div>
+  <div class="form-group">
+    <label for="password">Parola</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      required
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Autentifică-te</button>
+</form>
+<p class="mt-3 text-center">
+  Nu ai un cont? <a href="{{ url_for('register') }}">Înregistrează-te aici</a>
+</p>
+{% endblock %}

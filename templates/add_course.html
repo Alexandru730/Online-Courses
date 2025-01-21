@@ -1,0 +1,27 @@
+{% extends 'layout.html' %} {% block content %}
+<h2 class="text-center">Adaugă un Curs Nou</h2>
+
+<form method="POST" action="{{ url_for('add_course') }}">
+  <label for="course_name">Nume curs:</label>
+  <input type="text" id="course_name" name="course_name" required />
+
+  <label for="course_description">Descriere curs:</label>
+  <textarea
+    id="course_description"
+    name="course_description"
+    required
+  ></textarea>
+
+  <label for="categories">Categorii:</label>
+  <select id="categories" name="categories" multiple required>
+    {% for category in categories %}
+    <option value="{{ category.CategoryID }}">
+      {{ category.Nume_Categorie }}
+    </option>
+    {% endfor %}
+  </select>
+
+  <button type="submit">Adaugă curs</button>
+</form>
+
+{% endblock %}

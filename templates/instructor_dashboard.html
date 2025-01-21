@@ -1,0 +1,25 @@
+{% extends 'layout.html' %} {% block title %}Dashboard Instructor{% endblock %}
+{% block content %}
+
+<h1>Dashboard Instructor</h1>
+
+<h2>Notificări</h2>
+{% if notifications %}
+<ul>
+  {% for notification in notifications %}
+  <li>{{ notification.Mesaj }}</li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>Nu aveți notificări noi.</p>
+{% endif %}
+<h3>Cursuri</h3>
+{% if courses %}
+<ul>
+  {% for course in courses %}
+  <li>{{ course.name }} - {{ course.description }}</li>
+  {% endfor %}
+</ul>
+{% else %}
+<a href="{{ url_for('add_course') }}">Adăugați un curs</a>
+{% endif %} {% endblock %}

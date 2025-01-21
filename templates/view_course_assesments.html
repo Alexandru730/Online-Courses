@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Evaluări Curs</title>
+</head>
+<body>
+    <h1>Evaluări pentru Cursul: {{ course_id }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Utilizator</th>
+                <th>Tip Evaluare</th>
+                <th>Punctaj Obținut</th>
+                <th>Data Evaluării</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for assessment in assessments %}
+            <tr>
+                <td>{{ assessment.Nume }}</td>
+                <td>{{ assessment.Tip_assesment }}</td>
+                <td>{{ assessment.Punctaj_obtinut }}</td>
+                <td>{{ assessment.Data_assesment }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

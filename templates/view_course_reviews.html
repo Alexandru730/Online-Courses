@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Recenzii Curs</title>
+</head>
+<body>
+    <h1>Recenzii pentru Cursul: {{ course_id }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Utilizator</th>
+                <th>Rating</th>
+                <th>Comentariu</th>
+                <th>Data Recenziei</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for review in reviews %}
+            <tr>
+                <td>{{ review.Nume }}</td>
+                <td>{{ review.Rating }}</td>
+                <td>{{ review.Comentariu }}</td>
+                <td>{{ review.Data_review }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Formular pentru adăugare recenzie -->
+    <h2>Adaugă Recenzie</h2>
+    <form method="POST">
+        <label for="rating">Rating:</label>
+        <input type="number" name="rating" min="1" max="5" required>
+        <br><br>
+        <label for="comment">Comentariu:</label>
+        <textarea name="comment" required></textarea>
+        <br><br>
+        <button type="submit">Adaugă Recenzie</button>
+    </form>
+</body>
+</html>

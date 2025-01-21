@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cursuri în Așteptare</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Cursuri în Așteptare</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Nume Curs</th>
+          <th>Descriere</th>
+          <th>Profesor</th>
+          <th>Email Profesor</th>
+          <th>Telefon Profesor</th>
+          <th>Acțiuni</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for course in courses %}
+        <tr>
+          <td>{{ course[1] }}</td>
+          <!-- Nume_curs -->
+          <td>{{ course[2] }}</td>
+          <!-- Descriere -->
+          <td>{{ course[6] }}</td>
+          <!-- Nume_profesor -->
+          <td>{{ course[7] }}</td>
+          <!-- Email_profesor -->
+          <td>{{ course[8] }}</td>
+          <!-- Telefon_profesor -->
+          <td>
+            <!-- Formular pentru Aprobare -->
+            <form
+              action="{{ url_for('approve_course', pending_course_id=course[0]) }}"
+              method="POST"
+            >
+              <!-- <label for="categories">Selectează categoriile:</label>
+              <select name="categories" multiple>
+                <!-- Exemplu de opțiuni pentru categorii -->
+              <!-- <option value="1">IT</option>
+                <option value="2">Business</option>
+                <option value="3">Design</option>
+                <option value="4">Marketing</option>
+                <option value="5">Dezvoltare personala</option>
+              </select> -->
+
+              <button type="submit">Approve</button>
+            </form>
+
+            <!-- Formular pentru Respingere -->
+            <form
+              action="{{ url_for('reject_course', course_id=course[0]) }}"
+              method="POST"
+            >
+              <button type="submit">Reject</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <br /><br />
+    <a href="{{ url_for('admin_dashboard') }}">
+      <button>Înapoi la Dashboard</button>
+    </a>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Online Courses{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<!-- Burger Menu -->
+<div class="navbar" id="navbar">
+    <div class="burger-menu" id="burger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="menu">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('courses') }}">Courses</a>
+        <a href="{{ url_for('profile') }}">Profile</a>
+        {% if current_user.role == 'admin' %}
+            <a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a>
+            <a href="{{ url_for('manage_users') }}">Manage Users</a>
+        {% elif current_user.role == 'instructor' %}
+            <a href="{{ url_for('instructor_dashboard') }}">Instructor Dashboard</a>
+            <a href="{{ url_for('add_course') }}">Add Course</a>
+        {% else %}
+            <a href="{{ url_for('enroll_course') }}">Enroll in Course</a>
+        {% endif %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</div>
+
+{% block content %}
+{% endblock %}
+
+<script>
+    // Script pentru burger menu
+    const burgerMenu = document.getElementById('burger-menu');
+    const navbar = document.getElementById('navbar');
+
+    burgerMenu.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>

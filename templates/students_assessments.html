@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Evaluările disponibile pentru Cursul "{{ course.Nume_curs }}"</h1>
+
+{% if assessments %}
+  <ul>
+    {% for assessment in assessments %}
+      <li>
+        Tip: {{ assessment.Tip_assesment }}<br>
+        Data: {{ assessment.Data_assesment }}<br>
+        Punctaj maxim: {{ assessment.Max_punctaj }}<br>
+        <a href="{{ url_for('start_assessment', assesment_id=assessment.AssesmentID) }}">Începe evaluarea</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Nu există evaluări disponibile pentru acest curs.</p>
+{% endif %}
+{% endblock %}

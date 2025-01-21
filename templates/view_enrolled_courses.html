@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Cursuri Înregistrate</title>
+</head>
+<body>
+    <h1>Cursuri Înscrise</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Curs</th>
+                <th>Descriere</th>
+                <th>Data Înregistrării</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in enrolled_courses %}
+            <tr>
+                <td>{{ course.Nume_curs }}</td>
+                <td>{{ course.Descriere }}</td>
+                <td>{{ course.Data_inscriere }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
