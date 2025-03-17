@@ -1,4 +1,4 @@
-Sure! Here's the `README.md` in English:
+
 
 ```markdown
 # Online Course Platform
