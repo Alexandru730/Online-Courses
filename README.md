@@ -120,7 +120,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any questions or feedback, feel free to open an issue or reach out to [your-email@example.com].
+For any questions or feedback, feel free to open an issue or reach out to [alexandruraduica18@gmail.com].
 ```
 
 You can customize the fields like repository URL, contact email, or any other details specific to your project. Let me know if you need anything else!
