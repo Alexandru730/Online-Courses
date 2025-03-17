@@ -51,7 +51,7 @@ Install all the required dependencies by using `pip`.
 
 ### 4. Configure the database
 
-The application uses **SQLite** for data storage. The database will be automatically created the first time the app is run.
+The application uses **SQL Server Management Studio** for data storage. The database will be automatically created the first time the app is run.
 
 ### 5. Run the application
 
